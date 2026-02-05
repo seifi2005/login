@@ -24,6 +24,10 @@ class Plugin {
 	private function __construct() {
 		add_action( 'init', array( $this, 'load_textdomain' ) );
 
+		if ( class_exists( 'WCDPS\\Logger' ) ) {
+			Logger::register();
+		}
+
 		if ( ! class_exists( 'WooCommerce' ) ) {
 			add_action( 'admin_notices', array( $this, 'missing_woocommerce_notice' ) );
 			return;

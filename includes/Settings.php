@@ -22,6 +22,8 @@ class Settings {
 	private function __construct() {
 		add_action( 'admin_menu', array( $this, 'register_menu' ) );
 		add_action( 'admin_init', array( $this, 'register_settings' ) );
+		add_action( 'admin_post_wcdps_download_log', array( $this, 'download_log' ) );
+		add_action( 'admin_post_wcdps_clear_log', array( $this, 'clear_log' ) );
 	}
 
 	public function register_menu() {
@@ -129,12 +131,19 @@ class Settings {
 		$settings = self::get_settings();
 		$threshold = $settings['threshold'];
 		$methods   = $settings['methods'];
+		$log_tail  = Logger::get_log_tail( 200 );
+		$log_path  = Logger::get_log_path();
 		?>
 		<div class="wrap wcdps-wrap">
 			<h1><?php echo esc_html__( 'حمل‌ونقل قیمت‌گذاری دوگانه', 'wcdps' ); ?></h1>
 			<p class="description">
 				<?php echo esc_html__( 'آستانه‌ها، نرخ‌ها و جزئیات مراجعه حضوری را برای حمل ووکامرس تنظیم کنید.', 'wcdps' ); ?>
 			</p>
+			<?php if ( isset( $_GET['wcdps_log_cleared'] ) ) : ?>
+				<div class="notice notice-success is-dismissible">
+					<p><?php echo esc_html__( 'لاگ افزونه با موفقیت پاک شد.', 'wcdps' ); ?></p>
+				</div>
+			<?php endif; ?>
 			<form method="post" action="options.php">
 				<?php settings_fields( 'wcdps_settings_group' ); ?>
 				<div class="wcdps-grid">
@@ -229,7 +238,59 @@ class Settings {
 				</div>
 				<div id="wcdps-preview-results" class="wcdps-preview-results" aria-live="polite"></div>
 			</div>
+
+			<div class="wcdps-card wcdps-card-wide wcdps-preview">
+				<h2><?php echo esc_html__( 'گزارش خطاها', 'wcdps' ); ?></h2>
+				<p><?php echo esc_html__( 'این بخش آخرین خطاهای افزونه را نمایش می‌دهد.', 'wcdps' ); ?></p>
+				<p>
+					<strong><?php echo esc_html__( 'مسیر فایل لاگ:', 'wcdps' ); ?></strong>
+					<?php echo esc_html( $log_path ); ?>
+				</p>
+				<div class="wcdps-preview-controls">
+					<a class="button button-secondary" href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=wcdps_download_log' ), 'wcdps_download_log' ) ); ?>">
+						<?php echo esc_html__( 'دانلود لاگ', 'wcdps' ); ?>
+					</a>
+					<a class="button button-secondary" href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=wcdps_clear_log' ), 'wcdps_clear_log' ) ); ?>">
+						<?php echo esc_html__( 'پاک‌کردن لاگ', 'wcdps' ); ?>
+					</a>
+				</div>
+				<label><?php echo esc_html__( 'آخرین خطوط لاگ', 'wcdps' ); ?></label>
+				<textarea class="large-text code" rows="10" readonly><?php echo esc_textarea( $log_tail ? $log_tail : __( 'در حال حاضر لاگی وجود ندارد.', 'wcdps' ) ); ?></textarea>
+			</div>
 		</div>
 		<?php
+	}
+
+	public function download_log() {
+		if ( ! current_user_can( 'manage_woocommerce' ) ) {
+			wp_die( esc_html__( 'مجوز کافی ندارید.', 'wcdps' ) );
+		}
+
+		check_admin_referer( 'wcdps_download_log' );
+
+		$path = Logger::get_log_path();
+		if ( empty( $path ) || ! file_exists( $path ) ) {
+			wp_safe_redirect( wp_get_referer() ? wp_get_referer() : admin_url( 'admin.php?page=wcdps-settings' ) );
+			exit;
+		}
+
+		nocache_headers();
+		header( 'Content-Type: text/plain; charset=utf-8' );
+		header( 'Content-Disposition: attachment; filename="wcdps.log"' );
+		readfile( $path );
+		exit;
+	}
+
+	public function clear_log() {
+		if ( ! current_user_can( 'manage_woocommerce' ) ) {
+			wp_die( esc_html__( 'مجوز کافی ندارید.', 'wcdps' ) );
+		}
+
+		check_admin_referer( 'wcdps_clear_log' );
+		Logger::clear_log();
+
+		$redirect = add_query_arg( 'wcdps_log_cleared', '1', admin_url( 'admin.php?page=wcdps-settings' ) );
+		wp_safe_redirect( $redirect );
+		exit;
 	}
 }
