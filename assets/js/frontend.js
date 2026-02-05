@@ -8,8 +8,22 @@
 	function togglePickupBoxes() {
 		$('.wcdps-pickup-box').each(function () {
 			var $box = $(this);
-			var $li = $box.closest('li');
-			var $input = $li.find('input[type="radio"], input[type="checkbox"]').first();
+			var $container = $box.closest('li');
+			if (!$container.length) {
+				$container = $box.closest('tr');
+			}
+			if (!$container.length) {
+				$container = $box.closest('.shipping');
+			}
+
+			var $input = $container.find('input.shipping_method').first();
+			if (!$input.length) {
+				$input = $box.siblings('input.shipping_method').first();
+			}
+			if (!$input.length) {
+				$input = $box.prevAll('input.shipping_method').first();
+			}
+
 			var isActive = $input.length ? $input.is(':checked') : false;
 
 			$box.toggleClass('is-active', isActive);
@@ -29,8 +43,9 @@
 		togglePickupBoxes();
 	});
 
-	$(document.body).on('updated_checkout', function () {
+	$(document.body).on('updated_checkout updated_shipping_method updated_wc_div updated_cart_totals', function () {
 		togglePickupBoxes();
+		setTimeout(togglePickupBoxes, 50);
 	});
 
 	$(document).ready(function () {
