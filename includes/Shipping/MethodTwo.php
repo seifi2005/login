@@ -9,10 +9,10 @@ class MethodTwo extends AbstractMethod {
 	protected $method_key = 'method_two';
 
 	protected function get_method_label() {
-		return __( 'Dual Pricing: Method Two', 'wcdps' );
+		return __( 'قیمت‌گذاری دوگانه: روش دوم', 'wcdps' );
 	}
 
 	protected function get_method_description() {
-		return __( 'Second shipping method with dual pricing.', 'wcdps' );
+		return __( 'دومین روش حمل با قیمت‌گذاری دوگانه.', 'wcdps' );
 	}
 }

@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: Dual Pricing Shipping for WooCommerce
- * Description: Manage dual pricing shipping rates with a full admin panel.
+ * Plugin Name: حمل‌ونقل قیمت‌گذاری دوگانه ووکامرس
+ * Description: مدیریت حرفه‌ای نرخ‌های حمل با قیمت‌گذاری دوگانه و پنل کامل.
  * Version: 1.0.0
  * Author: Cursor Cloud Agent
  * Requires at least: 6.0

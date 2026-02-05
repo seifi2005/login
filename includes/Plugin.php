@@ -48,7 +48,7 @@ class Plugin {
 
 		printf(
 			'<div class="notice notice-error"><p>%s</p></div>',
-			esc_html__( 'Dual Pricing Shipping requires WooCommerce to be active.', 'wcdps' )
+			esc_html__( 'برای استفاده از حمل‌ونقل قیمت‌گذاری دوگانه، ووکامرس باید فعال باشد.', 'wcdps' )
 		);
 	}
 
@@ -80,7 +80,7 @@ class Plugin {
 			$details[] = sprintf(
 				'<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
 				esc_url( $pickup['map_url'] ),
-				esc_html__( 'View map', 'wcdps' )
+				esc_html__( 'مشاهده نقشه', 'wcdps' )
 			);
 		}
 

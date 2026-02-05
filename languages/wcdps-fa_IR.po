@@ -3,125 +3,125 @@ msgstr ""
 "Project-Id-Version: Dual Pricing Shipping for WooCommerce 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-05 00:00+0000\n"
-"PO-Revision-Date: \n"
+"PO-Revision-Date: 2026-02-05 00:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: \n"
+"Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: WCDPS\n"
 
 msgid "برای استفاده از حمل‌ونقل قیمت‌گذاری دوگانه، ووکامرس باید فعال باشد."
-msgstr ""
+msgstr "برای استفاده از حمل‌ونقل قیمت‌گذاری دوگانه، ووکامرس باید فعال باشد."
 
 msgid "مشاهده نقشه"
-msgstr ""
+msgstr "مشاهده نقشه"
 
 msgid "حمل‌ونقل قیمت‌گذاری دوگانه"
-msgstr ""
+msgstr "حمل‌ونقل قیمت‌گذاری دوگانه"
 
 msgid "آستانه‌ها، نرخ‌ها و جزئیات مراجعه حضوری را برای حمل ووکامرس تنظیم کنید."
-msgstr ""
+msgstr "آستانه‌ها، نرخ‌ها و جزئیات مراجعه حضوری را برای حمل ووکامرس تنظیم کنید."
 
 msgid "آستانه سراسری"
-msgstr ""
+msgstr "آستانه سراسری"
 
 msgid "آستانه جمع جزء که قیمت‌گذاری را به بازه بالاتر تغییر می‌دهد."
-msgstr ""
+msgstr "آستانه جمع جزء که قیمت‌گذاری را به بازه بالاتر تغییر می‌دهد."
 
 msgid "مبلغ آستانه"
-msgstr ""
+msgstr "مبلغ آستانه"
 
 msgid "فعال"
-msgstr ""
+msgstr "فعال"
 
 msgid "عنوان نمایشی"
-msgstr ""
+msgstr "عنوان نمایشی"
 
 msgid "هزینه زیر آستانه"
-msgstr ""
+msgstr "هزینه زیر آستانه"
 
 msgid "هزینه بالای آستانه"
-msgstr ""
+msgstr "هزینه بالای آستانه"
 
 msgid "مراجعه حضوری"
-msgstr ""
+msgstr "مراجعه حضوری"
 
 msgid "آدرس دفتر"
-msgstr ""
+msgstr "آدرس دفتر"
 
 msgid "تلفن دفتر"
-msgstr ""
+msgstr "تلفن دفتر"
 
 msgid "لینک گوگل مپس"
-msgstr ""
+msgstr "لینک گوگل مپس"
 
 msgid "ذخیره تنظیمات"
-msgstr ""
+msgstr "ذخیره تنظیمات"
 
 msgid "پیش‌نمایش زنده نرخ‌ها"
-msgstr ""
+msgstr "پیش‌نمایش زنده نرخ‌ها"
 
 msgid "نرخ‌ها را بدون ترک صفحه به‌صورت فوری بررسی کنید."
-msgstr ""
+msgstr "نرخ‌ها را بدون ترک صفحه به‌صورت فوری بررسی کنید."
 
 msgid "مبلغ جمع جزء"
-msgstr ""
+msgstr "مبلغ جمع جزء"
 
 msgid "پیش‌نمایش نرخ‌ها"
-msgstr ""
+msgstr "پیش‌نمایش نرخ‌ها"
 
 msgid "روش حمل اول"
-msgstr ""
+msgstr "روش حمل اول"
 
 msgid "روش حمل دوم"
-msgstr ""
+msgstr "روش حمل دوم"
 
 msgid "روش حمل سوم"
-msgstr ""
+msgstr "روش حمل سوم"
 
 msgid "رایگان"
-msgstr ""
+msgstr "رایگان"
 
 msgid "غیرفعال"
-msgstr ""
+msgstr "غیرفعال"
 
 msgid "در حال بارگذاری..."
-msgstr ""
+msgstr "در حال بارگذاری..."
 
 msgid "اطلاعاتی در دسترس نیست."
-msgstr ""
+msgstr "اطلاعاتی در دسترس نیست."
 
 msgid "پاسخ غیرمنتظره."
-msgstr ""
+msgstr "پاسخ غیرمنتظره."
 
 msgid "درخواست ناموفق بود."
-msgstr ""
+msgstr "درخواست ناموفق بود."
 
 msgid "مجوز کافی ندارید."
-msgstr ""
+msgstr "مجوز کافی ندارید."
 
 msgid "قیمت‌گذاری دوگانه: روش اول"
-msgstr ""
+msgstr "قیمت‌گذاری دوگانه: روش اول"
 
 msgid "اولین روش حمل با قیمت‌گذاری دوگانه."
-msgstr ""
+msgstr "اولین روش حمل با قیمت‌گذاری دوگانه."
 
 msgid "قیمت‌گذاری دوگانه: روش دوم"
-msgstr ""
+msgstr "قیمت‌گذاری دوگانه: روش دوم"
 
 msgid "دومین روش حمل با قیمت‌گذاری دوگانه."
-msgstr ""
+msgstr "دومین روش حمل با قیمت‌گذاری دوگانه."
 
 msgid "قیمت‌گذاری دوگانه: روش سوم"
-msgstr ""
+msgstr "قیمت‌گذاری دوگانه: روش سوم"
 
 msgid "سومین روش حمل با قیمت‌گذاری دوگانه."
-msgstr ""
+msgstr "سومین روش حمل با قیمت‌گذاری دوگانه."
 
 msgid "قیمت‌گذاری دوگانه: مراجعه حضوری"
-msgstr ""
+msgstr "قیمت‌گذاری دوگانه: مراجعه حضوری"
 
 msgid "مراجعه حضوری با نمایش جزئیات تماس دفتر."
-msgstr ""
+msgstr "مراجعه حضوری با نمایش جزئیات تماس دفتر."

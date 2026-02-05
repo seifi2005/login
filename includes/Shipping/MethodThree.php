@@ -9,10 +9,10 @@ class MethodThree extends AbstractMethod {
 	protected $method_key = 'method_three';
 
 	protected function get_method_label() {
-		return __( 'Dual Pricing: Method Three', 'wcdps' );
+		return __( 'قیمت‌گذاری دوگانه: روش سوم', 'wcdps' );
 	}
 
 	protected function get_method_description() {
-		return __( 'Third shipping method with dual pricing.', 'wcdps' );
+		return __( 'سومین روش حمل با قیمت‌گذاری دوگانه.', 'wcdps' );
 	}
 }

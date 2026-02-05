@@ -62,12 +62,12 @@ class Assets {
 				'decimals'       => $decimals,
 				'locale'         => get_user_locale(),
 				'i18n'           => array(
-					'free'     => __( 'Free', 'wcdps' ),
-					'disabled' => __( 'Disabled', 'wcdps' ),
-					'loading'  => __( 'Loading...', 'wcdps' ),
-					'noData'   => __( 'No data available.', 'wcdps' ),
-					'unexpected' => __( 'Unexpected response.', 'wcdps' ),
-					'requestFailed' => __( 'Request failed.', 'wcdps' ),
+					'free'          => __( 'رایگان', 'wcdps' ),
+					'disabled'      => __( 'غیرفعال', 'wcdps' ),
+					'loading'       => __( 'در حال بارگذاری...', 'wcdps' ),
+					'noData'        => __( 'اطلاعاتی در دسترس نیست.', 'wcdps' ),
+					'unexpected'    => __( 'پاسخ غیرمنتظره.', 'wcdps' ),
+					'requestFailed' => __( 'درخواست ناموفق بود.', 'wcdps' ),
 				),
 			)
 		);

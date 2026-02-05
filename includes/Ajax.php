@@ -24,7 +24,7 @@ class Ajax {
 		check_ajax_referer( 'wcdps_admin_ajax', 'nonce' );
 
 		if ( ! current_user_can( 'manage_woocommerce' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Insufficient permissions.', 'wcdps' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'مجوز کافی ندارید.', 'wcdps' ) ), 403 );
 		}
 
 		$subtotal = 0;

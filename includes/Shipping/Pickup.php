@@ -9,10 +9,10 @@ class Pickup extends AbstractMethod {
 	protected $method_key = 'pickup';
 
 	protected function get_method_label() {
-		return __( 'Dual Pricing: Office Pickup', 'wcdps' );
+		return __( 'قیمت‌گذاری دوگانه: مراجعه حضوری', 'wcdps' );
 	}
 
 	protected function get_method_description() {
-		return __( 'Pickup at office with displayed contact details.', 'wcdps' );
+		return __( 'مراجعه حضوری با نمایش جزئیات تماس دفتر.', 'wcdps' );
 	}
 }
