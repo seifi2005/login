@@ -6,13 +6,15 @@
 
 .wcdps-pickup-box {
 	display: none;
-	margin: 10px 0 8px;
-	padding: 14px 16px 14px 18px;
+	margin: 12px 0 10px;
+	padding: 16px 18px 16px 20px;
 	border-radius: 12px;
-	border: 1px solid #e2e8f0;
-	background: linear-gradient(135deg, #f8fafc 0%, #eef6ff 100%);
+	border: 1px solid rgba(148, 163, 184, 0.35);
+	background: linear-gradient(135deg, #ffffff 0%, #f1f5ff 55%, #eef6ff 100%);
 	color: #425466;
-	box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+	box-shadow:
+		0 10px 26px rgba(15, 23, 42, 0.08),
+		0 2px 6px rgba(15, 23, 42, 0.06);
 	position: relative;
 	overflow: hidden;
 	will-change: transform, opacity;
@@ -33,10 +35,24 @@
 	background: linear-gradient(180deg, #38bdf8 0%, #2563eb 100%);
 }
 
+.wcdps-pickup-box::after {
+	content: '';
+	position: absolute;
+	top: -40px;
+	right: -40px;
+	width: 120px;
+	height: 120px;
+	border-radius: 999px;
+	background: radial-gradient(circle at center, rgba(96, 165, 250, 0.25), rgba(255, 255, 255, 0));
+	pointer-events: none;
+}
+
 .wcdps-pickup-box__title {
 	font-weight: 600;
 	margin-bottom: 8px;
 	color: #0f172a;
+	font-size: 14px;
+	letter-spacing: 0.2px;
 }
 
 .wcdps-pickup-box ul {
@@ -66,6 +82,7 @@
 
 .wcdps-pickup-box strong {
 	color: #0f172a;
+	min-width: 52px;
 }
 
 .wcdps-pickup-box a {
