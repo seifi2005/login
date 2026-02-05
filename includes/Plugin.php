@@ -39,7 +39,8 @@ class Plugin {
 		Ajax::get_instance();
 
 		add_filter( 'woocommerce_shipping_methods', array( $this, 'register_methods' ) );
-		add_filter( 'woocommerce_cart_shipping_method_full_label', array( $this, 'append_pickup_details' ), 10, 2 );
+		add_filter( 'woocommerce_cart_shipping_method_full_label', array( $this, 'append_free_label' ), 10, 2 );
+		add_action( 'woocommerce_after_shipping_rate', array( $this, 'render_pickup_box' ), 10, 2 );
 	}
 
 	public function load_textdomain() {
@@ -102,47 +103,85 @@ class Plugin {
 		}
 	}
 
-	public function append_pickup_details( $label, $method ) {
-		if ( empty( $method->method_id ) || 'wcdps_pickup' !== $method->method_id ) {
+	public function append_free_label( $label, $method ) {
+		if ( ! is_object( $method ) || ! method_exists( $method, 'get_cost' ) ) {
 			return $label;
+		}
+
+		$cost = (float) $method->get_cost();
+		if ( $cost > 0 ) {
+			return $label;
+		}
+
+		$free_text = esc_html__( 'هزینه ارسال رایگان', 'wcdps' );
+		if ( false !== strpos( $label, $free_text ) ) {
+			return $label;
+		}
+
+		return $label . ' <span class="wcdps-free-label">(' . esc_html( $free_text ) . ')</span>';
+	}
+
+	public function render_pickup_box( $method, $index ) {
+		$method_id = '';
+		if ( is_object( $method ) && method_exists( $method, 'get_method_id' ) ) {
+			$method_id = $method->get_method_id();
+		} elseif ( is_object( $method ) && isset( $method->method_id ) ) {
+			$method_id = $method->method_id;
+		}
+
+		if ( 'wcdps_pickup' !== $method_id ) {
+			return;
 		}
 
 		$settings = Settings::get_settings();
 		$pickup   = isset( $settings['methods']['pickup'] ) ? $settings['methods']['pickup'] : array();
 
-		$details = array();
+		$items = array();
 		if ( ! empty( $pickup['address'] ) ) {
-			$details[] = esc_html( $pickup['address'] );
+			$items[] = sprintf(
+				'<li><strong>%s</strong> %s</li>',
+				esc_html__( 'آدرس:', 'wcdps' ),
+				esc_html( $pickup['address'] )
+			);
 		}
 		if ( ! empty( $pickup['phone'] ) ) {
-			$details[] = esc_html( $pickup['phone'] );
+			$items[] = sprintf(
+				'<li><strong>%s</strong> %s</li>',
+				esc_html__( 'تلفن:', 'wcdps' ),
+				esc_html( $pickup['phone'] )
+			);
 		}
 		if ( ! empty( $pickup['map_url'] ) ) {
-			$details[] = sprintf(
-				'<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
+			$items[] = sprintf(
+				'<li><strong>%s</strong> <a href="%s" target="_blank" rel="noopener noreferrer">%s</a></li>',
+				esc_html__( 'نقشه:', 'wcdps' ),
 				esc_url( $pickup['map_url'] ),
 				esc_html__( 'مشاهده نقشه', 'wcdps' )
 			);
 		}
 
-		if ( empty( $details ) ) {
-			return $label;
+		if ( empty( $items ) ) {
+			return;
 		}
 
 		$markup = sprintf(
-			'<div class="wcdps-pickup-details">%s</div>',
-			implode( ' | ', $details )
+			'<div class="wcdps-pickup-box" aria-hidden="true"><div class="wcdps-pickup-box__title">%s</div><ul>%s</ul></div>',
+			esc_html__( 'جزئیات مراجعه حضوری', 'wcdps' ),
+			implode( '', $items )
 		);
 
 		$allowed = array(
-			'div' => array( 'class' => array() ),
-			'a'   => array(
+			'div'    => array( 'class' => array(), 'aria-hidden' => array() ),
+			'ul'     => array(),
+			'li'     => array(),
+			'strong' => array(),
+			'a'      => array(
 				'href'   => array(),
 				'target' => array(),
 				'rel'    => array(),
 			),
 		);
 
-		return $label . wp_kses( $markup, $allowed );
+		echo wp_kses( $markup, $allowed );
 	}
 }

@@ -149,3 +149,18 @@ msgstr ""
 
 msgid "در حال حاضر لاگی وجود ندارد."
 msgstr ""
+
+msgid "هزینه ارسال رایگان"
+msgstr ""
+
+msgid "جزئیات مراجعه حضوری"
+msgstr ""
+
+msgid "آدرس:"
+msgstr ""
+
+msgid "تلفن:"
+msgstr ""
+
+msgid "نقشه:"
+msgstr ""
