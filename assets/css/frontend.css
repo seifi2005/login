@@ -6,35 +6,70 @@
 
 .wcdps-pickup-box {
 	display: none;
-	margin: 8px 0 6px;
-	padding: 12px;
-	border-radius: 10px;
-	border: 1px dashed #d0d7de;
-	background: #f8fafc;
+	margin: 10px 0 8px;
+	padding: 14px 16px 14px 18px;
+	border-radius: 12px;
+	border: 1px solid #e2e8f0;
+	background: linear-gradient(135deg, #f8fafc 0%, #eef6ff 100%);
 	color: #425466;
-	animation: wcdpsFadeIn 0.2s ease;
+	box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+	position: relative;
+	overflow: hidden;
+	will-change: transform, opacity;
 }
 
 .wcdps-pickup-box.is-active {
 	display: block;
+	animation: wcdpsFadeIn 0.25s ease;
+}
+
+.wcdps-pickup-box::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 4px;
+	background: linear-gradient(180deg, #38bdf8 0%, #2563eb 100%);
 }
 
 .wcdps-pickup-box__title {
 	font-weight: 600;
-	margin-bottom: 6px;
+	margin-bottom: 8px;
+	color: #0f172a;
 }
 
 .wcdps-pickup-box ul {
 	margin: 0;
-	padding-left: 18px;
+	padding: 0;
+	list-style: none;
+	display: grid;
+	gap: 6px;
 }
 
 .wcdps-pickup-box li {
-	margin: 4px 0;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 13px;
+	color: #334155;
+}
+
+.wcdps-pickup-box li::before {
+	content: '';
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: #60a5fa;
+	flex: 0 0 6px;
+}
+
+.wcdps-pickup-box strong {
+	color: #0f172a;
 }
 
 .wcdps-pickup-box a {
-	color: #2271b1;
+	color: #2563eb;
 	text-decoration: none;
 }
 
