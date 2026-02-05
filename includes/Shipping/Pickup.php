@@ -8,11 +8,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Pickup extends AbstractMethod {
 	protected $method_key = 'pickup';
 
-	protected function get_method_label() {
+	protected function get_wcdps_method_label() {
 		return __( 'قیمت‌گذاری دوگانه: مراجعه حضوری', 'wcdps' );
 	}
 
-	protected function get_method_description() {
+	protected function get_wcdps_method_description() {
 		return __( 'مراجعه حضوری با نمایش جزئیات تماس دفتر.', 'wcdps' );
 	}
 }

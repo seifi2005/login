@@ -15,8 +15,8 @@ abstract class AbstractMethod extends \WC_Shipping_Method {
 		$this->instance_id = absint( $instance_id );
 		$this->supports    = array( 'shipping-zones' );
 		$this->id          = 'wcdps_' . $this->method_key;
-		$this->method_title       = $this->get_method_label();
-		$this->method_description = $this->get_method_description();
+		$this->method_title       = $this->get_wcdps_method_label();
+		$this->method_description = $this->get_wcdps_method_description();
 
 		$this->init_settings_from_global();
 	}
@@ -25,7 +25,7 @@ abstract class AbstractMethod extends \WC_Shipping_Method {
 		$settings = Settings::get_settings();
 		$config   = isset( $settings['methods'][ $this->method_key ] ) ? $settings['methods'][ $this->method_key ] : array();
 
-		$title = ! empty( $config['title'] ) ? $config['title'] : $this->get_method_label();
+		$title = ! empty( $config['title'] ) ? $config['title'] : $this->get_wcdps_method_label();
 
 		$this->title   = $title;
 		$this->enabled = ! empty( $config['enabled'] ) ? 'yes' : 'no';
@@ -51,7 +51,7 @@ abstract class AbstractMethod extends \WC_Shipping_Method {
 		$this->add_rate( $rate );
 	}
 
-	abstract protected function get_method_label();
+	abstract protected function get_wcdps_method_label();
 
-	abstract protected function get_method_description();
+	abstract protected function get_wcdps_method_description();
 }
