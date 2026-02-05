@@ -1,0 +1,14 @@
+.wcdps-pickup-details {
+	margin-top: 6px;
+	font-size: 13px;
+	color: #5b6770;
+}
+
+.wcdps-pickup-details a {
+	color: #2271b1;
+	text-decoration: none;
+}
+
+.wcdps-pickup-details a:hover {
+	text-decoration: underline;
+}
