@@ -29,6 +29,7 @@ class Plugin {
 			return;
 		}
 
+		add_action( 'woocommerce_shipping_init', array( $this, 'load_shipping_classes' ) );
 		Settings::get_instance();
 		Assets::get_instance();
 		Ajax::get_instance();
@@ -53,12 +54,48 @@ class Plugin {
 	}
 
 	public function register_methods( $methods ) {
-		$methods['wcdps_method_one']   = MethodOne::class;
-		$methods['wcdps_method_two']   = MethodTwo::class;
-		$methods['wcdps_method_three'] = MethodThree::class;
-		$methods['wcdps_pickup']       = Pickup::class;
+		if ( ! class_exists( '\WC_Shipping_Method' ) ) {
+			return $methods;
+		}
+
+		if ( class_exists( MethodOne::class ) ) {
+			$methods['wcdps_method_one'] = MethodOne::class;
+		}
+
+		if ( class_exists( MethodTwo::class ) ) {
+			$methods['wcdps_method_two'] = MethodTwo::class;
+		}
+
+		if ( class_exists( MethodThree::class ) ) {
+			$methods['wcdps_method_three'] = MethodThree::class;
+		}
+
+		if ( class_exists( Pickup::class ) ) {
+			$methods['wcdps_pickup'] = Pickup::class;
+		}
 
 		return $methods;
+	}
+
+	public function load_shipping_classes() {
+		if ( ! class_exists( '\WC_Shipping_Method' ) ) {
+			return;
+		}
+
+		$files = array(
+			'includes/Shipping/AbstractMethod.php',
+			'includes/Shipping/MethodOne.php',
+			'includes/Shipping/MethodTwo.php',
+			'includes/Shipping/MethodThree.php',
+			'includes/Shipping/Pickup.php',
+		);
+
+		foreach ( $files as $file ) {
+			$path = WCDPS_PATH . $file;
+			if ( file_exists( $path ) ) {
+				require_once $path;
+			}
+		}
 	}
 
 	public function append_pickup_details( $label, $method ) {
