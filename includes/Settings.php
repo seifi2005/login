@@ -80,7 +80,20 @@ class Settings {
 
 	public static function get_settings() {
 		$settings = get_option( self::OPTION_KEY, array() );
-		return wp_parse_args( $settings, self::get_default_settings() );
+		$defaults = self::get_default_settings();
+
+		$settings = wp_parse_args( $settings, $defaults );
+
+		if ( empty( $settings['methods'] ) || ! is_array( $settings['methods'] ) ) {
+			$settings['methods'] = $defaults['methods'];
+		} else {
+			foreach ( $defaults['methods'] as $key => $method_defaults ) {
+				$current = isset( $settings['methods'][ $key ] ) ? $settings['methods'][ $key ] : array();
+				$settings['methods'][ $key ] = wp_parse_args( $current, $method_defaults );
+			}
+		}
+
+		return $settings;
 	}
 
 	public static function get_default_settings() {
