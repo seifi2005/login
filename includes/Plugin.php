@@ -4,6 +4,7 @@ namespace WCDPS;
 use WCDPS\Shipping\MethodOne;
 use WCDPS\Shipping\MethodTwo;
 use WCDPS\Shipping\MethodThree;
+use WCDPS\Shipping\MethodFour;
 use WCDPS\Shipping\Pickup;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -75,6 +76,10 @@ class Plugin {
 			$methods['wcdps_method_three'] = MethodThree::class;
 		}
 
+		if ( class_exists( MethodFour::class ) ) {
+			$methods['wcdps_method_four'] = MethodFour::class;
+		}
+
 		if ( class_exists( Pickup::class ) ) {
 			$methods['wcdps_pickup'] = Pickup::class;
 		}
@@ -92,6 +97,7 @@ class Plugin {
 			'includes/Shipping/MethodOne.php',
 			'includes/Shipping/MethodTwo.php',
 			'includes/Shipping/MethodThree.php',
+			'includes/Shipping/MethodFour.php',
 			'includes/Shipping/Pickup.php',
 		);
 

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: حمل‌ونقل قیمت‌گذاری دوگانه ووکامرس
  * Description: مدیریت حرفه‌ای نرخ‌های حمل با قیمت‌گذاری دوگانه و پنل کامل.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: Cursor Cloud Agent
  * Requires at least: 6.0
  * Requires PHP: 7.4
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'WCDPS_VERSION', '1.0.2' );
+define( 'WCDPS_VERSION', '1.0.3' );
 define( 'WCDPS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WCDPS_URL', plugin_dir_url( __FILE__ ) );
 define( 'WCDPS_BASENAME', plugin_basename( __FILE__ ) );

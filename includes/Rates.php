@@ -34,7 +34,7 @@ class Rates {
 
 	public static function get_rates_for_subtotal( $subtotal, $settings = array() ) {
 		$settings = empty( $settings ) ? Settings::get_settings() : $settings;
-		$methods  = array( 'method_one', 'method_two', 'method_three', 'pickup' );
+		$methods  = array( 'method_one', 'method_two', 'method_three', 'method_four', 'pickup' );
 		$rates    = array();
 
 		foreach ( $methods as $key ) {

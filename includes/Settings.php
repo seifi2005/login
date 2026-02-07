@@ -114,6 +114,15 @@ class Settings {
 					'phone'      => '',
 					'map_url'    => '',
 				),
+				'method_four'  => array(
+					'enabled'    => 1,
+					'title'      => __( 'ارسال با پست سفارشی', 'wcdps' ),
+					'below_cost' => 15000,
+					'above_cost' => 0,
+					'address'    => '',
+					'phone'      => '',
+					'map_url'    => '',
+				),
 				'pickup'       => array(
 					'enabled'    => 1,
 					'title'      => __( 'مراجعه حضوری', 'wcdps' ),
@@ -161,7 +170,7 @@ class Settings {
 						/>
 					</div>
 
-					<?php foreach ( array( 'method_one', 'method_two', 'method_three' ) as $key ) : ?>
+					<?php foreach ( array( 'method_one', 'method_two', 'method_three', 'method_four' ) as $key ) : ?>
 						<?php $method = $methods[ $key ]; ?>
 						<div class="wcdps-card">
 							<h2><?php echo esc_html( $method['title'] ); ?></h2>
