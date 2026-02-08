@@ -173,3 +173,18 @@ msgstr ""
 
 msgid "روش ارسال پست سفارشی با قیمت‌گذاری دوگانه."
 msgstr ""
+
+msgid "آیکون روش"
+msgstr ""
+
+msgid "انتخاب/آپلود آیکون"
+msgstr ""
+
+msgid "حذف آیکون"
+msgstr ""
+
+msgid "انتخاب آیکون"
+msgstr ""
+
+msgid "استفاده از این آیکون"
+msgstr ""

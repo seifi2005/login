@@ -69,6 +69,7 @@ class Settings {
 				'address'    => isset( $method_input['address'] ) ? sanitize_text_field( $method_input['address'] ) : $method_defaults['address'],
 				'phone'      => isset( $method_input['phone'] ) ? sanitize_text_field( $method_input['phone'] ) : $method_defaults['phone'],
 				'map_url'    => isset( $method_input['map_url'] ) ? esc_url_raw( $method_input['map_url'] ) : $method_defaults['map_url'],
+				'icon_url'   => isset( $method_input['icon_url'] ) ? esc_url_raw( $method_input['icon_url'] ) : $method_defaults['icon_url'],
 			);
 		}
 
@@ -108,6 +109,7 @@ class Settings {
 					'address'    => '',
 					'phone'      => '',
 					'map_url'    => '',
+					'icon_url'   => WCDPS_URL . 'assets/icons/method-one.svg',
 				),
 				'method_two'   => array(
 					'enabled'    => 1,
@@ -117,6 +119,7 @@ class Settings {
 					'address'    => '',
 					'phone'      => '',
 					'map_url'    => '',
+					'icon_url'   => WCDPS_URL . 'assets/icons/method-two.svg',
 				),
 				'method_three' => array(
 					'enabled'    => 1,
@@ -126,6 +129,7 @@ class Settings {
 					'address'    => '',
 					'phone'      => '',
 					'map_url'    => '',
+					'icon_url'   => WCDPS_URL . 'assets/icons/method-three.svg',
 				),
 				'method_four'  => array(
 					'enabled'    => 1,
@@ -135,6 +139,7 @@ class Settings {
 					'address'    => '',
 					'phone'      => '',
 					'map_url'    => '',
+					'icon_url'   => WCDPS_URL . 'assets/icons/method-four.svg',
 				),
 				'pickup'       => array(
 					'enabled'    => 1,
@@ -144,6 +149,7 @@ class Settings {
 					'address'    => '',
 					'phone'      => '',
 					'map_url'    => '',
+					'icon_url'   => WCDPS_URL . 'assets/icons/pickup.svg',
 				),
 			),
 		);
@@ -205,6 +211,25 @@ class Settings {
 									<input type="number" min="0" step="1" name="<?php echo esc_attr( self::OPTION_KEY ); ?>[methods][<?php echo esc_attr( $key ); ?>][above_cost]" value="<?php echo esc_attr( $method['above_cost'] ); ?>" />
 								</div>
 							</div>
+							<label for="wcdps-icon-<?php echo esc_attr( $key ); ?>"><?php echo esc_html__( 'آیکون روش', 'wcdps' ); ?></label>
+							<div class="wcdps-icon-field">
+								<input
+									id="wcdps-icon-<?php echo esc_attr( $key ); ?>"
+									type="url"
+									name="<?php echo esc_attr( self::OPTION_KEY ); ?>[methods][<?php echo esc_attr( $key ); ?>][icon_url]"
+									value="<?php echo esc_url( $method['icon_url'] ); ?>"
+									placeholder="https://"
+								/>
+								<button type="button" class="button wcdps-icon-upload">
+									<?php echo esc_html__( 'انتخاب/آپلود آیکون', 'wcdps' ); ?>
+								</button>
+								<button type="button" class="button wcdps-icon-remove">
+									<?php echo esc_html__( 'حذف آیکون', 'wcdps' ); ?>
+								</button>
+							</div>
+							<div class="wcdps-icon-preview <?php echo empty( $method['icon_url'] ) ? 'is-empty' : ''; ?>">
+								<img src="<?php echo esc_url( $method['icon_url'] ); ?>" alt="" />
+							</div>
 						</div>
 					<?php endforeach; ?>
 
@@ -241,6 +266,25 @@ class Settings {
 						</div>
 						<label><?php echo esc_html__( 'لینک گوگل مپس', 'wcdps' ); ?></label>
 						<input type="url" name="<?php echo esc_attr( self::OPTION_KEY ); ?>[methods][pickup][map_url]" value="<?php echo esc_attr( $pickup['map_url'] ); ?>" />
+						<label for="wcdps-icon-pickup"><?php echo esc_html__( 'آیکون روش', 'wcdps' ); ?></label>
+						<div class="wcdps-icon-field">
+							<input
+								id="wcdps-icon-pickup"
+								type="url"
+								name="<?php echo esc_attr( self::OPTION_KEY ); ?>[methods][pickup][icon_url]"
+								value="<?php echo esc_url( $pickup['icon_url'] ); ?>"
+								placeholder="https://"
+							/>
+							<button type="button" class="button wcdps-icon-upload">
+								<?php echo esc_html__( 'انتخاب/آپلود آیکون', 'wcdps' ); ?>
+							</button>
+							<button type="button" class="button wcdps-icon-remove">
+								<?php echo esc_html__( 'حذف آیکون', 'wcdps' ); ?>
+							</button>
+						</div>
+						<div class="wcdps-icon-preview <?php echo empty( $pickup['icon_url'] ) ? 'is-empty' : ''; ?>">
+							<img src="<?php echo esc_url( $pickup['icon_url'] ); ?>" alt="" />
+						</div>
 					</div>
 				</div>
 				<div class="wcdps-actions">

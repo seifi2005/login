@@ -67,4 +67,57 @@
 				$('#wcdps-preview-results').removeClass('is-loading');
 			});
 	});
+
+	function updateIconPreview($field) {
+		var url = $field.find('input[type="url"]').val();
+		var $preview = $field.next('.wcdps-icon-preview');
+		if (!url) {
+			$preview.addClass('is-empty');
+			$preview.find('img').attr('src', '');
+			return;
+		}
+
+		$preview.removeClass('is-empty');
+		$preview.find('img').attr('src', url);
+	}
+
+	$(document).on('click', '.wcdps-icon-upload', function (event) {
+		event.preventDefault();
+
+		var $field = $(this).closest('.wcdps-icon-field');
+		var frame = wp.media({
+			title: wcdpsAdmin.i18n.mediaTitle,
+			button: { text: wcdpsAdmin.i18n.mediaButton },
+			library: { type: 'image' },
+			multiple: false
+		});
+
+		frame.on('select', function () {
+			var attachment = frame.state().get('selection').first();
+			if (!attachment) {
+				return;
+			}
+
+			var data = attachment.toJSON();
+			$field.find('input[type="url"]').val(data.url).trigger('change');
+		});
+
+		frame.open();
+	});
+
+	$(document).on('click', '.wcdps-icon-remove', function (event) {
+		event.preventDefault();
+		var $field = $(this).closest('.wcdps-icon-field');
+		$field.find('input[type="url"]').val('').trigger('change');
+	});
+
+	$(document).on('change input', '.wcdps-icon-field input[type="url"]', function () {
+		updateIconPreview($(this).closest('.wcdps-icon-field'));
+	});
+
+	$(document).ready(function () {
+		$('.wcdps-icon-field').each(function () {
+			updateIconPreview($(this));
+		});
+	});
 })(jQuery);

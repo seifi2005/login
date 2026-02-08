@@ -114,6 +114,8 @@ class Plugin {
 			return $label;
 		}
 
+		$label = $this->prepend_method_icon( $label, $method );
+
 		$cost = (float) $method->get_cost();
 		if ( $cost > 0 ) {
 			return $label;
@@ -125,6 +127,50 @@ class Plugin {
 		}
 
 		return $label . ' <span class="wcdps-free-label">(' . esc_html( $free_text ) . ')</span>';
+	}
+
+	private function prepend_method_icon( $label, $method ) {
+		$method_id = '';
+		if ( is_object( $method ) && method_exists( $method, 'get_method_id' ) ) {
+			$method_id = (string) $method->get_method_id();
+		} elseif ( is_object( $method ) && isset( $method->method_id ) ) {
+			$method_id = (string) $method->method_id;
+		}
+
+		if ( empty( $method_id ) || 0 !== strpos( $method_id, 'wcdps_' ) ) {
+			return $label;
+		}
+
+		if ( false !== strpos( $label, 'wcdps-method-icon' ) ) {
+			return $label;
+		}
+
+		$key      = substr( $method_id, 6 );
+		$settings = Settings::get_settings();
+		$icon_url = isset( $settings['methods'][ $key ]['icon_url'] ) ? $settings['methods'][ $key ]['icon_url'] : '';
+
+		if ( empty( $icon_url ) ) {
+			return $label;
+		}
+
+		$icon = sprintf(
+			'<span class="wcdps-method-icon" aria-hidden="true"><img src="%s" alt="" /></span>',
+			esc_url( $icon_url )
+		);
+
+		$allowed = array(
+			'span' => array(
+				'class'       => array(),
+				'aria-hidden' => array(),
+			),
+			'img'  => array(
+				'src'   => array(),
+				'alt'   => array(),
+				'class' => array(),
+			),
+		);
+
+		return wp_kses( $icon, $allowed ) . $label;
 	}
 
 	public function render_pickup_box( $method, $index ) {

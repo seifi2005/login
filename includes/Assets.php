@@ -26,6 +26,8 @@ class Assets {
 			return;
 		}
 
+		wp_enqueue_media();
+
 		wp_enqueue_style(
 			'wcdps-admin',
 			WCDPS_URL . 'assets/css/admin.css',
@@ -68,6 +70,8 @@ class Assets {
 					'noData'        => __( 'اطلاعاتی در دسترس نیست.', 'wcdps' ),
 					'unexpected'    => __( 'پاسخ غیرمنتظره.', 'wcdps' ),
 					'requestFailed' => __( 'درخواست ناموفق بود.', 'wcdps' ),
+					'mediaTitle'    => __( 'انتخاب آیکون', 'wcdps' ),
+					'mediaButton'   => __( 'استفاده از این آیکون', 'wcdps' ),
 				),
 			)
 		);

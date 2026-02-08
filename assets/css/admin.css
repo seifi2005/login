@@ -118,6 +118,40 @@
 	font-weight: 600;
 }
 
+.wcdps-icon-field {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	align-items: center;
+}
+
+.wcdps-icon-field input[type="url"] {
+	flex: 1 1 220px;
+}
+
+.wcdps-icon-preview {
+	margin-top: 10px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 46px;
+	height: 46px;
+	border-radius: 12px;
+	background: #f8fafc;
+	border: 1px solid #e2e8f0;
+	box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.wcdps-icon-preview img {
+	width: 28px;
+	height: 28px;
+	display: block;
+}
+
+.wcdps-icon-preview.is-empty {
+	display: none;
+}
+
 @media (max-width: 782px) {
 	.wcdps-preview-controls {
 		flex-direction: column;
