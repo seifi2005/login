@@ -1,0 +1,193 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Dual Pricing Shipping for WooCommerce 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-05 00:00+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: WCDPS\n"
+
+msgid "برای استفاده از حمل‌ونقل قیمت‌گذاری دوگانه، ووکامرس باید فعال باشد."
+msgstr ""
+
+msgid "مشاهده نقشه"
+msgstr ""
+
+msgid "حمل‌ونقل قیمت‌گذاری دوگانه"
+msgstr ""
+
+msgid "آستانه‌ها، نرخ‌ها و جزئیات مراجعه حضوری را برای حمل ووکامرس تنظیم کنید."
+msgstr ""
+
+msgid "آستانه سراسری"
+msgstr ""
+
+msgid "آستانه جمع جزء که قیمت‌گذاری را به بازه بالاتر تغییر می‌دهد."
+msgstr ""
+
+msgid "مبلغ آستانه"
+msgstr ""
+
+msgid "فعال"
+msgstr ""
+
+msgid "عنوان نمایشی"
+msgstr ""
+
+msgid "هزینه زیر آستانه"
+msgstr ""
+
+msgid "هزینه بالای آستانه"
+msgstr ""
+
+msgid "مراجعه حضوری"
+msgstr ""
+
+msgid "آدرس دفتر"
+msgstr ""
+
+msgid "تلفن دفتر"
+msgstr ""
+
+msgid "لینک گوگل مپس"
+msgstr ""
+
+msgid "ذخیره تنظیمات"
+msgstr ""
+
+msgid "پیش‌نمایش زنده نرخ‌ها"
+msgstr ""
+
+msgid "نرخ‌ها را بدون ترک صفحه به‌صورت فوری بررسی کنید."
+msgstr ""
+
+msgid "مبلغ جمع جزء"
+msgstr ""
+
+msgid "پیش‌نمایش نرخ‌ها"
+msgstr ""
+
+msgid "روش حمل اول"
+msgstr ""
+
+msgid "روش حمل دوم"
+msgstr ""
+
+msgid "روش حمل سوم"
+msgstr ""
+
+msgid "رایگان"
+msgstr ""
+
+msgid "غیرفعال"
+msgstr ""
+
+msgid "در حال بارگذاری..."
+msgstr ""
+
+msgid "اطلاعاتی در دسترس نیست."
+msgstr ""
+
+msgid "پاسخ غیرمنتظره."
+msgstr ""
+
+msgid "درخواست ناموفق بود."
+msgstr ""
+
+msgid "مجوز کافی ندارید."
+msgstr ""
+
+msgid "قیمت‌گذاری دوگانه: روش اول"
+msgstr ""
+
+msgid "اولین روش حمل با قیمت‌گذاری دوگانه."
+msgstr ""
+
+msgid "قیمت‌گذاری دوگانه: روش دوم"
+msgstr ""
+
+msgid "دومین روش حمل با قیمت‌گذاری دوگانه."
+msgstr ""
+
+msgid "قیمت‌گذاری دوگانه: روش سوم"
+msgstr ""
+
+msgid "سومین روش حمل با قیمت‌گذاری دوگانه."
+msgstr ""
+
+msgid "قیمت‌گذاری دوگانه: مراجعه حضوری"
+msgstr ""
+
+msgid "مراجعه حضوری با نمایش جزئیات تماس دفتر."
+msgstr ""
+
+msgid "لاگ افزونه با موفقیت پاک شد."
+msgstr ""
+
+msgid "گزارش خطاها"
+msgstr ""
+
+msgid "این بخش آخرین خطاهای افزونه را نمایش می‌دهد."
+msgstr ""
+
+msgid "مسیر فایل لاگ:"
+msgstr ""
+
+msgid "دانلود لاگ"
+msgstr ""
+
+msgid "پاک‌کردن لاگ"
+msgstr ""
+
+msgid "آخرین خطوط لاگ"
+msgstr ""
+
+msgid "در حال حاضر لاگی وجود ندارد."
+msgstr ""
+
+msgid "هزینه ارسال رایگان"
+msgstr ""
+
+msgid "جزئیات مراجعه حضوری"
+msgstr ""
+
+msgid "آدرس:"
+msgstr ""
+
+msgid "تلفن:"
+msgstr ""
+
+msgid "نقشه:"
+msgstr ""
+
+msgid "ارسال با پست سفارشی"
+msgstr ""
+
+msgid "قیمت‌گذاری دوگانه: ارسال با پست سفارشی"
+msgstr ""
+
+msgid "روش ارسال پست سفارشی با قیمت‌گذاری دوگانه."
+msgstr ""
+
+msgid "آیکون روش"
+msgstr ""
+
+msgid "انتخاب/آپلود آیکون"
+msgstr ""
+
+msgid "حذف آیکون"
+msgstr ""
+
+msgid "انتخاب آیکون"
+msgstr ""
+
+msgid "استفاده از این آیکون"
+msgstr ""
+
+msgid "کتابخانه رسانه در دسترس نیست."
+msgstr ""
