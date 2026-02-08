@@ -38,7 +38,7 @@ class Assets {
 		wp_enqueue_script(
 			'wcdps-admin',
 			WCDPS_URL . 'assets/js/admin.js',
-			array( 'jquery' ),
+			array( 'jquery', 'media-editor', 'media-views' ),
 			WCDPS_VERSION,
 			true
 		);
@@ -72,6 +72,7 @@ class Assets {
 					'requestFailed' => __( 'درخواست ناموفق بود.', 'wcdps' ),
 					'mediaTitle'    => __( 'انتخاب آیکون', 'wcdps' ),
 					'mediaButton'   => __( 'استفاده از این آیکون', 'wcdps' ),
+					'mediaUnavailable' => __( 'کتابخانه رسانه در دسترس نیست.', 'wcdps' ),
 				),
 			)
 		);

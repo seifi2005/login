@@ -84,6 +84,11 @@
 	$(document).on('click', '.wcdps-icon-upload', function (event) {
 		event.preventDefault();
 
+		if (typeof wp === 'undefined' || !wp.media) {
+			alert(wcdpsAdmin.i18n.mediaUnavailable);
+			return;
+		}
+
 		var $field = $(this).closest('.wcdps-icon-field');
 		var frame = wp.media({
 			title: wcdpsAdmin.i18n.mediaTitle,
